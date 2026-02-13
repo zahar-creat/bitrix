@@ -9,6 +9,7 @@ if (empty($arResult)) {
 
 global $APPLICATION;
 $currentPage = is_object($APPLICATION) ? $APPLICATION->GetCurPage(false) : '';
+$currentPageNormalized = rtrim(str_replace('/index.php', '/', $currentPage), '/') . '/';
 ?>
 <ul>
 <?php foreach ($arResult as $arItem): ?>
@@ -35,7 +36,8 @@ $currentPage = is_object($APPLICATION) ? $APPLICATION->GetCurPage(false) : '';
                     <?php
                     $submenuLink = isset($submenuItem['LINK']) ? $submenuItem['LINK'] : '#';
                     $submenuText = isset($submenuItem['TEXT']) ? $submenuItem['TEXT'] : '';
-                    $submenuClass = ($currentPage === $submenuLink) ? ' class="active"' : '';
+                    $submenuLinkNormalized = rtrim(str_replace('/index.php', '/', $submenuLink), '/') . '/';
+                    $submenuClass = ($submenuLink !== '#' && $currentPageNormalized === $submenuLinkNormalized) ? ' class="active"' : '';
                     ?>
                     <li<?= $submenuClass ?>>
                         <a href="<?= htmlspecialcharsbx($submenuLink) ?>"><?= htmlspecialcharsbx($submenuText) ?></a>

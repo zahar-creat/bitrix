@@ -8,6 +8,10 @@ $showSidebar = $APPLICATION->GetPageProperty('SHOW_SIDEBAR');
 if ($showSidebar === '') {
     $showSidebar = ($isHomePage || strpos($APPLICATION->GetCurDir(), '/services/') === 0) ? 'Y' : 'N';
 }
+$bannerAlt = $APPLICATION->GetTitle(false);
+if ($bannerAlt === '') {
+    $bannerAlt = 'Баннер';
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?=LANGUAGE_ID?>">
@@ -25,7 +29,7 @@ if ($showSidebar === '') {
         <img
             src="<?= htmlspecialcharsbx($APPLICATION->GetPageProperty('BANNER_IMAGE') ?: SITE_TEMPLATE_PATH . '/layout/img/page-1-banner.png') ?>"
             class="banner"
-            alt="<?= htmlspecialcharsbx($APPLICATION->ShowTitle(false)) ?>"
+            alt="<?= htmlspecialcharsbx($bannerAlt) ?>"
         />
     <?php endif; ?>
     <header>
@@ -91,14 +95,14 @@ if ($showSidebar === '') {
                     <menu>
                         <?php
                         $APPLICATION->IncludeComponent(
-                                'bitrix:menu',
-                                'top',
-                                [
-                                    'ROOT_MENU_TYPE' => 'top',
-                                    'MAX_LEVEL' => '1',
-                                    'CHILD_MENU_TYPE' => 'top',
-                                    'USE_EXT' => 'N',
-                                'MENU_CACHE_TYPE' => 'A',
+                            'bitrix:menu',
+                            'top',
+                            [
+                                'ROOT_MENU_TYPE' => 'top',
+                                'MAX_LEVEL' => '1',
+                                'CHILD_MENU_TYPE' => 'top',
+                                'USE_EXT' => 'N',
+                                'MENU_CACHE_TYPE' => 'N',
                                 'MENU_CACHE_TIME' => '3600',
                                 'MENU_CACHE_USE_GROUPS' => 'Y',
                                 'MENU_CACHE_GET_VARS' => [],
@@ -172,8 +176,8 @@ if ($showSidebar === '') {
                             'ROOT_MENU_TYPE' => 'left',
                             'MAX_LEVEL' => '1',
                             'CHILD_MENU_TYPE' => 'left',
-                            'USE_EXT' => 'N',
-                            'MENU_CACHE_TYPE' => 'A',
+                            'USE_EXT' => 'Y',
+                            'MENU_CACHE_TYPE' => 'N',
                             'MENU_CACHE_TIME' => '3600',
                             'MENU_CACHE_USE_GROUPS' => 'Y',
                             'MENU_CACHE_GET_VARS' => [],

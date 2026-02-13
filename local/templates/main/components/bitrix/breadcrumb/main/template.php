@@ -9,8 +9,12 @@ if (empty($arResult)) {
 ?>
 <ul>
 <?php $itemsCount = count($arResult); ?>
-<?php foreach ($arResult as $index => $arItem): ?>
-    <?php $isLast = ($index === $itemsCount - 1); ?>
+<?php $position = 0; ?>
+<?php foreach ($arResult as $arItem): ?>
+    <?php
+    $position++;
+    $isLast = ($position === $itemsCount);
+    ?>
     <li>
         <?php if (!$isLast): ?>
             <a href="<?= htmlspecialcharsbx($arItem['LINK']) ?>"><?= htmlspecialcharsbx($arItem['TITLE']) ?></a>
