@@ -1,0 +1,10 @@
+/bitrix/
+/upload/
+/bitrix/cache/
+/bitrix/managed_cache/
+/bitrix/stack_cache/
+/bitrix/modules/
+/local/php_interface/dbconn.php
+.env
+/vendor/
+node_modules/
