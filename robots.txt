@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /bitrix/
+Disallow: /local/
+Disallow: /search/
+Disallow: /login/
+Allow: /upload/
+
+Sitemap: /sitemap.xml
