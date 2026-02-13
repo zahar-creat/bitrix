@@ -4,10 +4,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 }
 
 $isHomePage = $APPLICATION->GetCurPage(false) === '/';
-$showSidebar = $APPLICATION->GetPageProperty('SHOW_SIDEBAR');
-if ($showSidebar === '') {
-    $showSidebar = ($isHomePage || strpos($APPLICATION->GetCurDir(), '/services/') === 0) ? 'Y' : 'N';
-}
 $bannerAlt = $APPLICATION->GetTitle(false);
 if ($bannerAlt === '') {
     $bannerAlt = 'Баннер';
@@ -166,25 +162,23 @@ if ($bannerAlt === '') {
 
     <div class="container">
         <div class="page-content<?= $isHomePage ? '' : ' inner' ?>">
-            <?php if ($showSidebar === 'Y'): ?>
-                <aside class="sidebar-left upper">
-                    <?php
-                    $APPLICATION->IncludeComponent(
-                        'bitrix:menu',
-                        'services',
-                        [
-                            'ROOT_MENU_TYPE' => 'left',
-                            'MAX_LEVEL' => '1',
-                            'CHILD_MENU_TYPE' => 'left',
-                            'USE_EXT' => 'Y',
-                            'MENU_CACHE_TYPE' => 'N',
-                            'MENU_CACHE_TIME' => '3600',
-                            'MENU_CACHE_USE_GROUPS' => 'Y',
-                            'MENU_CACHE_GET_VARS' => [],
-                            'ALLOW_MULTI_SELECT' => 'N',
-                        ]
-                    );
-                    ?>
-                </aside>
-            <?php endif; ?>
-            <div class="content-wrapper<?= $showSidebar === 'Y' ? '' : ' full-width' ?>">
+            <aside class="sidebar-left upper">
+                <?php
+                $APPLICATION->IncludeComponent(
+                    'bitrix:menu',
+                    'services',
+                    [
+                        'ROOT_MENU_TYPE' => 'left',
+                        'MAX_LEVEL' => '1',
+                        'CHILD_MENU_TYPE' => 'left',
+                        'USE_EXT' => 'Y',
+                        'MENU_CACHE_TYPE' => 'N',
+                        'MENU_CACHE_TIME' => '3600',
+                        'MENU_CACHE_USE_GROUPS' => 'Y',
+                        'MENU_CACHE_GET_VARS' => [],
+                        'ALLOW_MULTI_SELECT' => 'N',
+                    ]
+                );
+                ?>
+            </aside>
+            <div class="content-wrapper">
