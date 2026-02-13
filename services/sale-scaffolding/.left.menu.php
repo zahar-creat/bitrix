@@ -5,24 +5,24 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 
 $aMenuLinks = [
     [
-        'Аренда строительных лесов',
+        'аренда<br>строительных лесов',
         '/services/rent-scaffolding/',
         [],
-        [],
+        ['HTML' => 'Y'],
         '',
     ],
     [
-        'Продажа строительных лесов',
+        'продажа<br>строительных лесов',
         '/services/sale-scaffolding/',
         [],
-        [],
+        ['HTML' => 'Y'],
         '',
     ],
     [
-        'Леса строительные б/у',
+        'леса<br>строительные б/у',
         '/services/scaffolding-used/',
         [],
-        [],
+        ['HTML' => 'Y'],
         '',
     ],
     [

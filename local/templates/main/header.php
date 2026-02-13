@@ -167,7 +167,7 @@ if ($bannerAlt === '') {
     <div class="container">
         <div class="page-content<?= $isHomePage ? '' : ' inner' ?>">
             <?php if ($showSidebar === 'Y'): ?>
-                <aside class="sidebar-left">
+                <aside class="sidebar-left upper">
                     <?php
                     $APPLICATION->IncludeComponent(
                         'bitrix:menu',

@@ -6,25 +6,28 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
 if (empty($arResult)) {
     $arResult = [
         [
-            'TEXT' => 'Аренда строительных лесов',
+            'TEXT' => 'аренда<br>строительных лесов',
             'LINK' => '/services/rent-scaffolding/',
             'SELECTED' => false,
             'PERMISSION' => 'R',
+            'PARAMS' => ['HTML' => 'Y'],
         ],
         [
-            'TEXT' => 'Продажа строительных лесов',
+            'TEXT' => 'продажа<br>строительных лесов',
             'LINK' => '/services/sale-scaffolding/',
             'SELECTED' => false,
             'PERMISSION' => 'R',
+            'PARAMS' => ['HTML' => 'Y'],
         ],
         [
-            'TEXT' => 'Леса строительные б/у',
+            'TEXT' => 'леса<br>строительные б/у',
             'LINK' => '/services/scaffolding-used/',
             'SELECTED' => false,
             'PERMISSION' => 'R',
+            'PARAMS' => ['HTML' => 'Y'],
         ],
         [
-            'TEXT' => 'Аренда вышки туры',
+            'TEXT' => 'аренда вышки туры',
             'LINK' => '/services/tower-rental/',
             'SELECTED' => false,
             'PERMISSION' => 'R',
@@ -36,7 +39,7 @@ global $APPLICATION;
 $currentPage = is_object($APPLICATION) ? $APPLICATION->GetCurPage(false) : '';
 $currentPageNormalized = rtrim(str_replace('/index.php', '/', $currentPage), '/') . '/';
 ?>
-<ul class="upper">
+<ul>
 <?php foreach ($arResult as $arItem): ?>
     <?php
     $itemLink = !empty($arItem['LINK']) ? $arItem['LINK'] : '#';
@@ -46,9 +49,25 @@ $currentPageNormalized = rtrim(str_replace('/index.php', '/', $currentPage), '/'
     ?>
     <li<?= $className ?>>
         <?php if ($arItem['PERMISSION'] > 'D'): ?>
-            <a href="<?= htmlspecialcharsbx($itemLink) ?>"><?= htmlspecialcharsbx($arItem['TEXT']) ?></a>
+            <a href="<?= htmlspecialcharsbx($itemLink) ?>">
+                <?php
+                if (!empty($arItem['PARAMS']['HTML'])) {
+                    echo strip_tags($arItem['TEXT'], '<br>');
+                } else {
+                    echo htmlspecialcharsbx($arItem['TEXT']);
+                }
+                ?>
+            </a>
         <?php else: ?>
-            <a href="#"><?= htmlspecialcharsbx($arItem['TEXT']) ?></a>
+            <a href="#">
+                <?php
+                if (!empty($arItem['PARAMS']['HTML'])) {
+                    echo strip_tags($arItem['TEXT'], '<br>');
+                } else {
+                    echo htmlspecialcharsbx($arItem['TEXT']);
+                }
+                ?>
+            </a>
         <?php endif; ?>
     </li>
 <?php endforeach; ?>
