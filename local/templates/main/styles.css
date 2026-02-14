@@ -202,6 +202,189 @@ footer .contacts-wrap .contact a:visited {
   background: linear-gradient(90deg, #dd393f, #db5a2d);
 }
 
+.gallery-page {
+  margin-top: 8px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.gallery-card {
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+}
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  transition: transform 0.25s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+}
+
+.company-page h1,
+.contacts-page h1 {
+  margin-top: 0;
+}
+
+.company-page p,
+.contacts-page p {
+  text-align: left;
+  line-height: 1.5;
+  padding-bottom: 0;
+  margin: 0 0 14px;
+}
+
+.company-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 38%) 1fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.company-intro__media {
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.company-intro__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.company-intro__content {
+  background: #f6f7f9;
+  border-left: 4px solid #dd393f;
+  padding: 20px;
+}
+
+.company-section {
+  margin-top: 24px;
+}
+
+.company-section h2,
+.contacts-card h2,
+.contacts-map h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-family: "pantonbold";
+  font-size: 24px;
+  color: #2f2f2f;
+}
+
+.company-values {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.company-value-card {
+  border: 1px solid #e7e7e7;
+  padding: 18px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.company-value-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-family: "pantonbold";
+  font-size: 20px;
+  color: #2f2f2f;
+}
+
+.company-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.company-list li {
+  margin-bottom: 10px;
+  font-family: "pantonlight";
+  font-size: 16px;
+  color: #636363;
+}
+
+.contacts-page__lead {
+  max-width: 900px;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.contacts-card {
+  border: 1px solid #e7e7e7;
+  border-top: 4px solid #dd393f;
+  border-radius: 4px;
+  padding: 18px;
+  background: #fff;
+}
+
+.contacts-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contacts-list li {
+  margin-bottom: 12px;
+  font-family: "pantonlight";
+  font-size: 16px;
+  color: #4f4f4f;
+}
+
+.contacts-list__label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "pantonbold";
+  font-size: 14px;
+  color: #2f2f2f;
+}
+
+.contacts-list a {
+  color: #dd393f;
+  text-decoration: none;
+}
+
+.contacts-list a:hover {
+  text-decoration: underline;
+}
+
+.contacts-card__address {
+  margin-bottom: 10px;
+  font-family: "pantonbold";
+  font-size: 18px;
+  color: #2f2f2f;
+}
+
+.contacts-card__note {
+  margin-bottom: 0;
+}
+
+.contacts-map {
+  margin-top: 24px;
+}
+
+.contacts-map iframe {
+  border: 0;
+  border-radius: 4px;
+}
+
 @media (max-width: 1199px) {
   .page,
   .slider,
@@ -243,6 +426,15 @@ footer .contacts-wrap .contact a:visited {
   .images-wrapper a {
     width: calc(50% - 4px);
     margin-right: 0 !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .company-values,
+  .contacts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .areas-of-use .row > [class*="col-"] {
@@ -376,6 +568,21 @@ footer .contacts-wrap .contact a:visited {
   .images-wrapper a,
   .areas-of-use .row > [class*="col-"] {
     width: 100%;
+  }
+
+  .gallery-grid,
+  .company-values,
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .company-intro__content,
+  .contacts-card {
+    padding: 14px;
   }
 
   .callback-modal__dialog {

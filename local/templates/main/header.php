@@ -3,7 +3,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
-$isHomePage = $APPLICATION->GetCurPage(false) === '/';
+$currentPage = $APPLICATION->GetCurPage(false);
+$isHomePage = $currentPage === '/';
+$isGalleryPage = strpos($currentPage, '/gallery') === 0;
 $bannerAlt = $APPLICATION->GetTitle(false);
 if ($bannerAlt === '') {
     $bannerAlt = 'Баннер';
@@ -17,6 +19,9 @@ if ($bannerAlt === '') {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $APPLICATION->ShowHead(); ?>
     <link href="<?= SITE_TEMPLATE_PATH ?>/styles.css" rel="stylesheet">
+    <?php if ($isGalleryPage): ?>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <?php endif; ?>
 </head>
 <body>
 <?php $APPLICATION->ShowPanel(); ?>

@@ -3,7 +3,9 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
     die();
 }
 
-$isHomePage = $APPLICATION->GetCurPage(false) === '/';
+$currentPage = $APPLICATION->GetCurPage(false);
+$isHomePage = $currentPage === '/';
+$isGalleryPage = strpos($currentPage, '/gallery') === 0;
 ?>
             </div>
             <div class="clearfix"></div>
@@ -152,6 +154,9 @@ $isHomePage = $APPLICATION->GetCurPage(false) === '/';
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="<?= SITE_TEMPLATE_PATH ?>/layout/js/bootstrap.min.js"></script>
 <script src="<?= SITE_TEMPLATE_PATH ?>/layout/slick/slick.min.js"></script>
+<?php if ($isGalleryPage): ?>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<?php endif; ?>
 <script src="<?= SITE_TEMPLATE_PATH ?>/layout/js/main.js"></script>
 </body>
 </html>

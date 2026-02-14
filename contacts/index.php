@@ -1,57 +1,78 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Контакты");
+<?php
+require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php';
+$APPLICATION->SetTitle('Контакты');
+$APPLICATION->SetPageProperty('BANNER_IMAGE', SITE_TEMPLATE_PATH . '/layout/img/page-2-banner.png');
 ?>
-<p>Обратитесь к нашим специалистам и получите профессиональную консультацию по вопросам создания и покупки мебели (от дизайна, разработки технического задания до доставки мебели к Вам домой).</p>
+<section class="contacts-page">
+    <h1>Контакты</h1>
+    <p class="contacts-page__lead">
+        Свяжитесь с нами удобным способом: по телефону, почте или приезжайте в офис.
+        Поможем подобрать решение по аренде и продаже строительных лесов под ваш объект.
+    </p>
 
-<p>Вы можете обратиться к нам по телефону, по электронной почте или договориться о встрече в нашем офисе. Будем рады помочь вам и ответить на все ваши вопросы. </p>
+    <div class="contacts-grid">
+        <article class="contacts-card">
+            <h2>Телефоны</h2>
+            <ul class="contacts-list">
+                <li>
+                    <span class="contacts-list__label">Основной:</span>
+                    <a href="tel:+78007008000">
+                        <?php
+                        $APPLICATION->IncludeFile(
+                            SITE_DIR . 'include/phone.php',
+                            [],
+                            ['MODE' => 'text', 'NAME' => 'Телефон']
+                        );
+                        ?>
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-<h2>Телефоны</h2>
+        <article class="contacts-card">
+            <h2>Электронная почта</h2>
+            <ul class="contacts-list">
+                <li>
+                    <span class="contacts-list__label">Общие вопросы:</span>
+                    <a href="mailto:lesa71@mail.ru">
+                        <?php
+                        $APPLICATION->IncludeFile(
+                            SITE_DIR . 'include/email.php',
+                            [],
+                            ['MODE' => 'text', 'NAME' => 'Email']
+                        );
+                        ?>
+                    </a>
+                </li>
+            </ul>
+        </article>
 
-<ul> 
-	<li>Телефон/факс:
-		<ul> 
-			<li><b>(495) 212-85-06</b></li>
-		</ul>
-	</li>
- 
-	<li>Телефоны:
-		<ul> 
-			<li><b>(495) 212-85-07</b></li>
-			<li><b>(495) 212-85-08</b></li>
-		</ul>
-	</li>
-</ul>
+        <article class="contacts-card">
+            <h2>Адрес офиса</h2>
+            <p class="contacts-card__address">
+                <?php
+                $APPLICATION->IncludeFile(
+                    SITE_DIR . 'include/address.php',
+                    [],
+                    ['MODE' => 'text', 'NAME' => 'Адрес']
+                );
+                ?>
+            </p>
+            <p class="contacts-card__note">
+                Работаем ежедневно. Перед визитом рекомендуем согласовать встречу по телефону.
+            </p>
+        </article>
+    </div>
 
-<h2>Email</h2>
-
-<ul> 
-  <li><a href="mailto:info@example.ru">info@example.ru</a> &mdash; общие вопросы</li>
-  <li><a href="mailto:sales@example.ru">sales@example.ru</a> &mdash; приобретение продукции</li>
-  <li><a href="mailto:marketing@example.ru">marketing@example.ru</a> &mdash; маркетинг/мероприятия/PR</li>
-</ul>
-
-<h2>Офис в Москве</h2>
-<p><?$APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
-	"KEY" => "ABQIAAAAOSNukcWVjXaGbDo6npRDcxS1yLxjXbTnpHav15fICwCqFS-qhhSby0EyD6rK_qL4vuBSKpeCz5cOjw",
-	"INIT_MAP_TYPE" => "NORMAL",
-	"MAP_DATA" => "a:3:{s:10:\"google_lat\";s:7:\"55.7383\";s:10:\"google_lon\";s:7:\"37.5946\";s:12:\"google_scale\";i:13;}",
-	"MAP_WIDTH" => "600",
-	"MAP_HEIGHT" => "500",
-	"CONTROLS" => array(
-		0 => "LARGE_MAP_CONTROL",
-		1 => "MINIMAP",
-		2 => "HTYPECONTROL",
-		3 => "SCALELINE",
-	),
-	"OPTIONS" => array(
-		0 => "ENABLE_SCROLL_ZOOM",
-		1 => "ENABLE_DBLCLICK_ZOOM",
-		2 => "ENABLE_DRAGGING",
-	),
-	"MAP_ID" => ""
-	),
-	false
-);?></p>
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+    <div class="contacts-map">
+        <h2>Мы на карте</h2>
+        <iframe
+            src="https://yandex.ru/map-widget/v1/?um=constructor%3A112bca028855e020a654ff55813b952ce78f33b1f69958bf557b0dc2b54ede13&amp;source=constructor"
+            width="100%"
+            height="400"
+            frameborder="0"
+            loading="lazy"
+        ></iframe>
+    </div>
+</section>
+<?php require $_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php'; ?>

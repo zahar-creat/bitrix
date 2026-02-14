@@ -8,6 +8,12 @@ jQuery(document).ready(function($) {
     });
   });
 
+  if (window.Fancybox) {
+    Fancybox.bind('[data-fancybox]', {
+      Thumbs: false
+    });
+  }
+
   var $callbackModal = $('#callback-modal');
 
   function closeCallbackModal() {
