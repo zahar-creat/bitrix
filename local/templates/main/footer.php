@@ -71,8 +71,6 @@ $isHomePage = $APPLICATION->GetCurPage(false) === '/';
                             ?>
                         </menu>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 col-xl-10 no-padding contacts-column">
                         <div class="contact-content">
                             <div class="contacts-wrap address">
@@ -111,10 +109,10 @@ $isHomePage = $APPLICATION->GetCurPage(false) === '/';
                                     ?>
                                 </div>
                             </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 no-padding call-column">
+                                <a href="#" class="call upper js-open-callback">заказать звонок</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 col-xl-2 no-padding call-column">
-                        <a href="#" class="call upper js-open-callback">заказать звонок</a>
                     </div>
                 </div>
             </div>

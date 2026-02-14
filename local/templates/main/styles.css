@@ -397,3 +397,8 @@ footer .contacts-wrap .contact a:visited {
     width: 100%;
   }
 }
+header .contact-content, footer .contact-content {
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
